@@ -1,15 +1,11 @@
 <script>
-  import imageData from "./assets/photos.json";
+  import images from "./assets/photos.json";
+  import ResponsiveImage from "./components/ResponsiveImage.svelte";
 </script>
 
-{#each imageData as image}
-  <img src={`/${image.fileName}-1200.jpeg`} alt="s " />
+{#each images as image}
+  <ResponsiveImage {image} />
 {/each}
 
 <style>
-  img {
-    width: 50%;
-    height: 100%;
-    object-fit: cover;
-  }
 </style>
