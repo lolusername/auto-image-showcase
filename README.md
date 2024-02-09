@@ -68,11 +68,11 @@ yarn preview
 
 The project includes a script that generates a JSON file containing metadata for the images. This metadata includes the aspect ratio of each image, which is used for layout purposes. You can run this script using:
 
-npm run generate-image-data
+`npm run generate-image-data`
 
 or with Yarn:
 
-yarn generate-image-data
+`yarn generate-image-data`
 
 Running this script will execute `photo-script.js` and create or update the `photos.json` file in the `src/assets` directory.
 
@@ -85,14 +85,9 @@ The application is built using the following technologies:
 - Tailwind CSS: A utility-first CSS framework for rapidly building custom designs.
 - sharp: A Node.js module for image processing.
   
-## Accessibility
 
-We aim to ensure that the website is accessible to a wide range of users, including those with disabilities. The images come with appropriate `alt` tags, and the layout is designed to be navigable via keyboard and screen readers.
 
 ## Contribution
 
 Contributions are welcome! If you have any suggestions or improvements, feel free to fork the repository and submit a pull request.
 
----
-
-We hope you enjoy using the Photos Portfolio Project for your photo showcasing needs!
