@@ -1,47 +1,98 @@
-# Svelte + Vite
+# Photos Portfolio Project
 
-This template should help get you started developing with Svelte in Vite.
+This project showcases a photo portfolio as a web application. It is built using modern web technologies and designed to be responsive and accessible. The core feature of the application is its ability to generate and display images with their aspect ratios and provide an engaging layout for users.
 
-## Recommended IDE Setup
+## Features
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+- Responsive Image Display: Images are displayed responsively, adapting to different screen sizes and orientations.
+- Aspect Ratio Calculation: Each image's aspect ratio is calculated and used to determine the layout, ensuring a consistent and aesthetically pleasing experience.
+- Image Data Generation: A script is available to generate JSON data for all photos, which includes their aspect ratios.
 
-## Need an official Svelte framework?
+## Getting Started
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+To get started with the project, you'll need to have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed. If you prefer [Yarn](https://yarnpkg.com/), you can use that as well.
 
-## Technical considerations
+1. Clone the repository:
 
-**Why use this over SvelteKit?**
+git clone https://github.com/your-username/photos-portfolio.git
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+2. Navigate to the project directory:
 
-This template contains as little as possible to get started with Vite + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+cd photos-portfolio
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+3. Install dependencies:
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+npm install
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
+or if you're using Yarn:
 
-**Why include `.vscode/extensions.json`?**
+yarn install
 
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
+## Usage
 
-**Why enable `checkJs` in the JS template?**
+### Development
 
-It is likely that most cases of changing variable types in runtime are likely to be accidental, rather than deliberate. This provides advanced typechecking out of the box. Should you like to take advantage of the dynamically-typed nature of JavaScript, it is trivial to change the configuration.
+To start the development server, run:
 
-**Why is HMR not preserving my local component state?**
+npm run dev
 
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/sveltejs/svelte-hmr/tree/master/packages/svelte-hmr#preservation-of-local-state).
+or with Yarn:
 
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
+yarn dev
 
-```js
-// store.js
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
-```
+This will launch the Vite dev server and you can view the application in your browser at `http://localhost:3000`.
+
+### Building
+
+To create a production build, run:
+
+npm run build
+
+or with Yarn:
+
+yarn build
+
+The production-ready files will be generated in the `dist/` directory.
+
+### Previewing the Build
+
+You can preview the production build locally using:
+
+npm run preview
+
+or with Yarn:
+
+yarn preview
+
+### Generating Image Data
+
+The project includes a script that generates a JSON file containing metadata for the images. This metadata includes the aspect ratio of each image, which is used for layout purposes. You can run this script using:
+
+npm run generate-image-data
+
+or with Yarn:
+
+yarn generate-image-data
+
+Running this script will execute `photo-script.js` and create or update the `photos.json` file in the `src/assets` directory.
+
+## Technical Details
+
+The application is built using the following technologies:
+
+- Svelte: A modern component-based JavaScript framework for building user interfaces.
+- Vite: A build tool that provides a fast development environment and optimized builds.
+- Tailwind CSS: A utility-first CSS framework for rapidly building custom designs.
+- sharp: A Node.js module for image processing.
+  
+## Accessibility
+
+We aim to ensure that the website is accessible to a wide range of users, including those with disabilities. The images come with appropriate `alt` tags, and the layout is designed to be navigable via keyboard and screen readers.
+
+## Contribution
+
+Contributions are welcome! If you have any suggestions or improvements, feel free to fork the repository and submit a pull request.
+
+---
+
+We hope you enjoy using the Photos Portfolio Project for your photo showcasing needs!

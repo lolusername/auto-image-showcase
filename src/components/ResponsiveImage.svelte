@@ -21,7 +21,7 @@
       src={`${image.fileName}-2400.jpeg`}
       alt="Description"
       class="{image.aspectRatio > 1
-        ? 'max-h-svh md:py-4'
+        ? 'md:max-h-[90svh]'
         : ''}  object-contain mx-auto"
     />
   </button>
