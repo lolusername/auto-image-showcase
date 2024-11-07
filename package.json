@@ -8,19 +8,22 @@
     "build": "vite build",
     "preview": "vite preview",
     "gen-photo-data": "node photo-script.js",
-    "optimize-images": "node optimize-photos.js"
+    "optimize-images": "node optimize-photos.js",
+    "deploy": "vite build && firebase deploy"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^3.0.1",
     "autoprefixer": "^10.4.17",
     "postcss": "^8.4.33",
     "svelte": "^4.2.8",
+    "svelte-routing": "^2.13.0",
     "tailwindcss": "^3.4.1",
     "vite": "^5.0.8"
   },
   "dependencies": {
     "@sveltejs/enhanced-img": "^0.1.8",
     "sharp": "^0.33.2",
+    "vike": "^0.4.184",
     "vite-imagetools": "^6.2.9"
   }
 }

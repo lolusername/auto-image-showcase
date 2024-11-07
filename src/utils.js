@@ -6,7 +6,7 @@ export function shuffleArray(array) {
     copy[i] = copy[j];
     copy[j] = temp;
   }
-  return copy; // Return the shuffled copy
+  return copy;
 }
 
 export function getLayout(featuredImage) {
@@ -18,7 +18,7 @@ export function getLayout(featuredImage) {
   const getWidth = () => {
     if (!isWindowPortrait) {
       return `${Math.max(
-        10,
+        33,
         100 - (windowAspectRatio / featuredImage.aspectRatio) * 100
       )}vw`;
     }
@@ -28,22 +28,12 @@ export function getLayout(featuredImage) {
   const getHeight = () => {
     if (isWindowPortrait) {
       return `${Math.max(
-        25,
-        (imageIsPortrait ? 100 : 75) -
+        100,
+        (imageIsPortrait ? 100 : 100) -
           (featuredImage.aspectRatio / windowAspectRatio) * 100
       )}vh`;
     }
     return "100vh";
-  };
-
-  const getFeaturedImageHeight = () => {
-    if (isWindowPortrait && !imageIsPortrait) {
-      return "75vh";
-    }
-    return `${Math.min(
-      100,
-      (featuredImage.aspectRatio / windowAspectRatio) * 100
-    )}vh`;
   };
 
   const getFeaturedImageWidth = () => {
@@ -51,14 +41,14 @@ export function getLayout(featuredImage) {
       return "auto";
     }
     return `${Math.min(
-      90,
+      67,
       (windowAspectRatio / featuredImage.aspectRatio) * 100
     )}vw`;
   };
   return {
     width: getWidth(),
     height: getHeight(),
-    featuredImageHeight: getFeaturedImageHeight(),
+    featuredImageHeight: "auto",
     featuredImageWidth: getFeaturedImageWidth(),
   };
 }

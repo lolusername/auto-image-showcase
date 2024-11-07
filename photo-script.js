@@ -27,7 +27,13 @@ const updateOrPush = (existingData, file, aspectRatio) => {
 };
 
 const generateJson = async () => {
-  const files = fs.readdirSync(imagesFolder);
+  const allowedExtensions = [".jpg", ".jpeg", ".tif", ".tiff", ".png"];
+  const files = fs
+    .readdirSync(imagesFolder)
+    .filter((file) =>
+      allowedExtensions.includes(path.extname(file).toLowerCase())
+    );
+
   let existingData = [];
 
   if (fs.existsSync(outputJson)) {

@@ -8,4 +8,5 @@ export default {
   plugins: [imagetools(), enhancedImages()],
   preprocess: vitePreprocess(),
   assetsInclude: ["*", "**/*", "**/**/*"],
+
 };
