@@ -3,16 +3,35 @@
   import ResponsiveImage from "./components/ResponsiveImage.svelte";
   import { shuffleArray, getLayout } from "./utils";
   import { Router, Route } from "svelte-routing";
-  import DIT from "./routes/dit.svelte"
+  import DIT from "./routes/dit.svelte";
+  import { onMount } from 'svelte';
 
-  const PATH = window.location.pathname
-
+  const PATH = window.location.pathname;
   const shuffledImages = shuffleArray(images);
   let orientation = "portrait";
   let layout = {};
   let featuredImage = PATH != '/dit' ? images[7]:'';
+  let windowWidth;
+  let windowHeight;
 
+  onMount(() => {
+    const handleResize = () => {
+      windowWidth = window.innerWidth;
+      windowHeight = window.innerHeight;
+    };
+    
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Initial call
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  });
 
+  $: orientation = windowWidth > windowHeight ? "landscape" : "portrait";
+  $: if (windowWidth || windowHeight) {
+    layout = getLayout(featuredImage);
+  }
 
   const getOrientation = () =>
     window.innerWidth > window.innerHeight ? "landscape" : "portrait";
@@ -39,10 +58,6 @@
         block: "center",
       });
     }, 700);
-  }
-  $: {
-    orientation = getOrientation();
-    layout = getLayout(featuredImage);
   }
 </script>
 

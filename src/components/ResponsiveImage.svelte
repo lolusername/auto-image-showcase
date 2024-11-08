@@ -27,9 +27,10 @@
       <img
         id={image.fileName}
         srcset={`${image.fileName}-800.webp 800w, ${image.fileName}-1800.webp 1800w, ${image.fileName}-2400.webp 2400w`}
-        sizes="(max-width: 800px) 800px,
-               (max-width: 1800px) 1800px,
-               2400px"
+        sizes="(max-width: 800px) 100vw,
+               (max-width: 1024px) 90vw,
+               (max-width: 1800px) 50vw,
+               33vw"
         src={`${image.fileName}-2400.jpeg`}
         alt="photography"
         class="{image.aspectRatio > 1 ? 'md:max-h-[90svh]' : ''} object-contain mx-auto transition-all duration-300 group-hover:brightness-95"
