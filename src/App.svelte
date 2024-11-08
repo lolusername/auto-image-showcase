@@ -61,15 +61,27 @@
       ? 'grid-cols-1 lg:grid-cols-2 border-b-4 gap-y-20 lg:pt-40'
       : 'grid-cols-1 border-l-2 border-stone-900'} 
       overflow-auto border-stone-900 transition-all duration-700 ease-linear justify-items-center
-      grid p-0.5 md:p-6 gap-3 md:gap-y-20 ml-auto ease-linear bg-stone-100 sticky bottom-0 sm:bottom-auto sm:relative"
+      grid p-1 md:p-6 gap-3 md:gap-y-20 ml-auto ease-linear bg-stone-100 sticky bottom-0 sm:bottom-auto sm:relative"
   >
     <section class="{orientation === 'portrait' ? 'lg:absolute' : ''} pt-10">
       <h1 class="text-5xl text-stone-900">Atilio Barreda II</h1>
       <h2 class="text-4xl text-stone-400">photos</h2>
     </section>
     
-    {#each shuffledImages as image}
-      <ResponsiveImage {image} on:setFeaturedImage={setFeaturedImage} />
+    {#if orientation === 'portrait' && featuredImage}
+      <div>
+        <ResponsiveImage image={featuredImage} allowFeatured={false} on:setFeaturedImage={setFeaturedImage} />
+      </div>
+    {/if}
+
+    {#each shuffledImages.filter(img => img.fileName !== featuredImage.fileName) as image}
+      <div class="{orientation === 'landscape' && image.fileName === featuredImage.fileName ? 'hidden lg:hidden' : ''}">
+        <ResponsiveImage 
+          {image} 
+          allowFeatured={orientation === 'landscape'}
+          on:setFeaturedImage={setFeaturedImage} 
+        />
+      </div>
     {/each}
   </main>
 </Route>
