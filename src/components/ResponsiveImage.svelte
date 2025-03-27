@@ -33,7 +33,7 @@
                33vw"
         src={`${image.fileName}-2400.jpeg`}
         alt="photography"
-        class="{image.aspectRatio > 1 ? 'md:max-h-[90svh]' : ''} object-contain mx-auto transition-all duration-300 group-hover:brightness-95"
+        class="{image.aspectRatio > 1 ? 'md:max-h-[90svh]' : ''} object-contain mx-auto transition-all duration-300"
       />
     </button>
 

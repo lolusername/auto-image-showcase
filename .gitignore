@@ -28,3 +28,6 @@ firebase.json
 firebase-debug.log
 firebase/
 .firebaserc
+
+public/*
+src/photos/*
